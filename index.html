@@ -1,54 +1,99 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>jQuery.getJSON demo</title>
-  <style>
-  
-  </style>
-  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-</head>
-<body>
-  <div> 
-  </div>
-  
-<div id="images"></div>
- 
-<script>
-(function() {
-    
-    alert("ddddddddddddd")
+  <head>
+    <meta charset="utf-8" />
+    <title>jQuery.getJSON demo</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  </head>
+  <body>
+    <script src="data.js"></script>
 
-    var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json'
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
+    <h1>Заголовок</h1>
+    <div style="display: flex; align-items: center; flex-direction: column">
+      <div
+        style="
+          width: 1200px;
+          height: 900px;
+          border: darkgray solid 1px;
+          position: relative;
+        "
+      >
+        <img
+          src="iron-man.png"
+          style="position: absolute; left: 0px; top: 0px"
+        />
+        <div
+          style="
+            display: flex;
+            align-content: stretch;
+            justify-content: space-around;
+            align-items: stretch;
+            flex-wrap: nowrap;
+            flex-direction: row;
+          "
+        >
+          <div
+            class="fillDiv paySector"
+            style="
+              width: 599px;
+              position: relative;
+              left: 0px;
+              top: 0px;
+              height: 900px;
+            "
+          ></div>
 
-    request.onload = function() {
-        var superHeroes = request.response;
-        console.log(superHeroes)
-        alert("ok")
-      }
-})();
+          <div
+            id="mainDiv"
+            style="
+              position: relative;
+              right: 0px;
+              top: 0px;
+              width: 50%;
+              display: flex;
+              align-items: flex-start;
+              flex-wrap: wrap;
+              align-content: flex-start;
+            "
+          >
+           
+          </div>
+        </div>
 
-(function() {
-  var flickerAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-  $.getJSON( flickerAPI, {
-    tags: "mount rainier",
-    tagmode: "any",
-    format: "json"
-  })
-    .done(function( data ) {
-      $.each( data.items, function( i, item ) {
-        $( "<img class='im'>" ).attr( "src", item.media.m ).appendTo( "#images" );
-        if ( i === 9 ) {
-          return false;
+        <script>
+          var curHer = dt["Iron man"];
+
+          function SortArray(x, y) {
+            if (Number(x["summa"]) > Number(y["summa"])) {
+              return -1;
+            }
+            if (Number(x["summa"]) < Number(y["summa"])) {
+              return 1;
+            }
+            return 0;
+          }
+          curHer = curHer.sort(SortArray);
+          for (i in curHer) {
+            console.log(curHer[i]);
+          }
+          console.log(dt["Iron man"]);
+        </script>
+      </div>
+    </div>
+    <h3 id="demo">footer</h3>
+    <script>
+      function fillSectors() {
+         for  (let i = 1; i <= 100 ; i++) {
+          for (let j = 1; j <= 100; j++) {
+             var d = document.getElementById("mainDiv")
+             var nEl = document.createElement('div')
+             nEl.className = 'fillDiv paySector'
+             d.appendChild(nEl)
+          }
         }
-      });
-    });
-})();
-</script>
- 
-</body>
+ };
+fillSectors()
+      </script>
+  </body>
 </html>
