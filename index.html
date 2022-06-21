@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.getJSON demo</title>
+  <style>
+  
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+  <div> 
+  </div>
+  
+<div id="images"></div>
+ 
+<script>
+(function() {
+    
+    alert("ddddddddddddd")
+
+    var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json'
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+
+    request.onload = function() {
+        var superHeroes = request.response;
+        console.log(superHeroes)
+        alert("ok")
+      }
+})();
+
+(function() {
+  var flickerAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+  $.getJSON( flickerAPI, {
+    tags: "mount rainier",
+    tagmode: "any",
+    format: "json"
+  })
+    .done(function( data ) {
+      $.each( data.items, function( i, item ) {
+        $( "<img class='im'>" ).attr( "src", item.media.m ).appendTo( "#images" );
+        if ( i === 9 ) {
+          return false;
+        }
+      });
+    });
+})();
+</script>
+ 
+</body>
+</html>
