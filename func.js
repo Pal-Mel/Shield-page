@@ -27,7 +27,7 @@ function fillSectors(name) {
     for (let j = 1; j <= countOfColumn; j++) {
         
       if (h < curHer.length-1) {
-        var width = 6 * curHer[h]["count"] - 1;
+        var width = 6 * curHer[h]["count"];
         nEl = document.createElement("span");
         nEl.style.width = width.toString() + "px";
         nEl.className = "tooltip fillDiv paySector";
