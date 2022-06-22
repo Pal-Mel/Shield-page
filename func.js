@@ -20,13 +20,10 @@ function fillSectors(name) {
     for (let j = 1; j <= 100; j++) {
       var d = document.getElementById("mainDiv");
       var nEl = document.createElement("span");
-      nEl.className = "tooltip";
+      nEl.className = "tooltip fillDiv paySector";
       nEl.delayOpen = "10"
       nEl.title = "Element"; // tool tip text
-      var sEl = document.createElement("div");
-      sEl.className = "fillDiv paySector";
-      nEl.appendChild(sEl);
-
+     
       d.appendChild(nEl);
     }
   }
