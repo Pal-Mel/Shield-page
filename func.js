@@ -21,7 +21,7 @@ function fillSectors(name) {
       var d = document.getElementById("mainDiv");
       var nEl = document.createElement("span");
       nEl.className = "tooltip";
-      nEl.delayOpen = "50"
+      nEl.delayOpen = "10"
       nEl.title = "Element"; // tool tip text
       var sEl = document.createElement("div");
       sEl.className = "fillDiv paySector";
