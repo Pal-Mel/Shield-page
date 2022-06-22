@@ -16,10 +16,18 @@ function fillSectors(name) {
   for (i in curHer) {
     console.log(curHer[i]);
   }
-  for (let i = 1; i <= 100; i++) {
-    for (let j = 1; j <= 100; j++) {
-      var d = document.getElementById("mainDiv");
-      var nEl = document.createElement("span");
+  const countOfRow = 100
+  const countOfColumn = 100
+
+  var h = 0
+  var nEl
+  var d = document.getElementById("mainDiv");
+console.log(d.clientWidth)
+
+  for (let i = 1; i <= countOfRow; i++) {
+    for (let j = 1; j <= countOfRow; j++) {
+
+      nEl = document.createElement("span");
       nEl.className = "tooltip fillDiv paySector";
       nEl.delayOpen = "10"
       nEl.title = "Element"; // tool tip text
