@@ -12,34 +12,62 @@ function SortArray(x, y) {
 // заповнення клітинок на картинці
 function fillSectors(name) {
   var curHer = dt[name];
-  curHer = curHer.sort(SortArray);
-  for (i in curHer) {
-    console.log(curHer[i]);
-  }
   const countOfRow = 100;
   const countOfColumn = 100;
+  const widthBlock = 6;
 
   var h = 0;
-  var nEl;
-  var d = document.getElementById("mainDiv");
+  var countForFill = 0;
+  var curWidthRow = 0;
 
-  for (let i = 1; i <= countOfRow; i++) {
-    for (let j = 1; j <= countOfColumn; j++) {
-        
-      if (h < curHer.length-1) {
-        var width = 6 * curHer[h]["count"];
-        nEl = document.createElement("span");
-        nEl.style.width = width.toString() + "px";
-        nEl.className = "tooltip fillDiv paySector";
-        nEl.delayOpen = "10";
-        nEl.title = curHer[h]["Name"] + " - " + curHer[h]["summa"] + " грн"; // tool tip text
-        d.appendChild(nEl);
-        h += 1;
+  let j = 1;
+  do {
+    if (h < curHer.length - 1) {
+      countForFill = curHer[h]["count"] * 1;
+
+      var width = widthBlock * countForFill;
+
+      if (curWidthRow + width > countOfColumn * widthBlock) {
+        if ((countOfColumn * widthBlock - curWidthRow) != 0) {
+          createBlock(
+            countOfColumn * widthBlock - curWidthRow,
+            true,
+            curHer[h]
+          );
+        }
+
+        var qq = width - (countOfColumn * widthBlock - curWidthRow);
+        curWidthRow = qq;
+        if (qq != 0) {
+          createBlock(qq, true, curHer[h]);
+        }
       } else {
-        nEl = document.createElement("span");
-        nEl.className = "fillDiv noPaySector";
-        d.appendChild(nEl);
+        createBlock(width, true, curHer[h]);
+        curWidthRow += width;
       }
+
+      h += 1;
+      j += countForFill;
+    } else {
+      createBlock(width, false);
+      j += 1;
     }
+  } while (j < countOfColumn * countOfRow);
+}
+
+function createBlock(width, payed, her = null) {
+  var d = document.getElementById("mainDiv");
+  var nEl;
+  nEl = document.createElement("span");
+  nEl.style.width = width.toString() + "px";
+  if (payed) {
+    nEl.className = "tooltip fillDiv paySector";
+    nEl.delayOpen = "10";
+    nEl.title = her["Name"] + " - " + her["summa"] + " грн"; // tool tip text
+    d.appendChild(nEl);
+  } else {
+    nEl = document.createElement("span");
+    nEl.className = "fillDiv noPaySector";
+    d.appendChild(nEl);
   }
 }
