@@ -27,9 +27,38 @@
         </div>
       </div>
     </div>
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+  <iframe src="https://secure.wayforpay.com/donate/d29544d9a04b2" style="
+  height: 100%;
+  width: 100%;
+"></iframe>
+  </div>
+
+</div>
+
 
     <script>
       fillSectors("Iron man");
+
+      var modal = document.getElementById("myModal");
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      var span = document.getElementsByClassName("close")[0];
+
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
     </script>
   </body>
 </html>

@@ -52,7 +52,7 @@ function fillSectors(name) {
       createBlock(width, false);
       j += 1;
     }
-  } while (j < countOfColumn * countOfRow);
+  } while (j <= countOfColumn * countOfRow);
 }
 
 function createBlock(width, payed, her = null) {
@@ -63,11 +63,21 @@ function createBlock(width, payed, her = null) {
   if (payed) {
     nEl.className = "tooltip fillDiv paySector";
     nEl.delayOpen = "10";
-    nEl.title = her["Name"] + " - " + her["summa"] + " грн"; // tool tip text
+    nEl.title = her["Name"];
+    nEl.content = " - " + her["summa"] + " грн"; // tool tip text
     d.appendChild(nEl);
   } else {
-    nEl = document.createElement("span");
+    // nEl = document.createElement("span");
+    var modal = document.getElementById("myModal");
+
     nEl.className = "fillDiv noPaySector";
+    nEl.title ='Натисни! Допоможи ЗСУ. Купи частину автомобіля. Залиш своє ім’я на сайті'
+    nEl.onclick = function() {
+      modal.style.display = "block";
+    }
+    
     d.appendChild(nEl);
   }
 }
+
+
