@@ -60,11 +60,12 @@ function createBlock(width, payed, her = null) {
   var nEl;
   nEl = document.createElement("span");
   nEl.style.width = width.toString() + "px";
+  // nEl.style.height = width.toString() + "px";
   if (payed) {
     nEl.className = "tooltip fillDiv paySector";
     nEl.delayOpen = "10";
     nEl.title = her["Name"];
-    nEl.content = " - " + her["summa"] + " грн"; // tool tip text
+    // nEl.content = " - " + her["summa"] + " грн"; // tool tip text
     d.appendChild(nEl);
   } else {
     // nEl = document.createElement("span");

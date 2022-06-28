@@ -60,8 +60,8 @@
     box-sizing: border-box;
   width: 6px;
   height: 6px;
-  border-left: rgba(119, 156, 122, 0.5) 1px solid;
-  border-bottom: rgba(119, 156, 122, 0.5) 1px solid;
+  border-left: rgba(64, 87, 66, 0.7) 1px solid;
+  border-bottom: rgba(119, 156, 122, 0.7) 1px solid;
     /* background: rgba(193, 194, 193, 0.4); */
   opacity: 1;
 }
