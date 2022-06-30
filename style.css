@@ -51,11 +51,17 @@
 }
 .fillDiv:hover {
   /* background: rgba(0, 0, 0, 0.5); */
-  background: rgba(103, 104, 82, 0.8);
+  background: rgba(139, 78, 78, 0.678);
 
   opacity: 1;
 }
 
+
+.block-ppp:hover {
+  background: rgba(92, 90, 90, 0.8);
+
+  opacity: 1;
+}
 .paySector {
     box-sizing: border-box;
   width: 6px;
