@@ -4,7 +4,7 @@ const dt =
   "venom": [],
   "thor": [],
   "spider-man": [],
-  "rocket-racoon": [],
+  "rocket-raccoon": [],
   "punisher": [],
   "iron-man": [
     {
