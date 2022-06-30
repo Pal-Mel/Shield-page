@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>SHIELD "Iron man"</title>
+    <title>SHIELD "Ghoostrider"</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -19,7 +20,7 @@
     
     <div class="container">
       <div class="image-container">
-        <img src="pic/iron-man.png" class="im" />
+        <img src="pic/ghoostrider.png" class="im" />
         <div class="main-table">
           <div class="fillDiv paySector block-pp tooltip" title="БФ ПОРОШЕНКА">
             <span></span>
@@ -31,7 +32,21 @@
     </div>
   
     <script>
-      fillSectors("iron-man");
+      fillSectors("ghoostrider");
+
+      var modal = document.getElementById("myModal");
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      var span = document.getElementsByClassName("close")[0];
+
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
     </script>
   </body>
 </html>

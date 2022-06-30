@@ -49,13 +49,13 @@ function fillSectors(name) {
       h += 1;
       j += countForFill;
     } else {
-      createBlock(width, false);
+      createBlock(width, false, null,name);
       j += 1;
     }
   } while (j <= countOfColumn * countOfRow);
 }
 
-function createBlock(width, payed, her = null) {
+function createBlock(width, payed, her = null,name="") {
   var d = document.getElementById("mainDiv");
   var nEl;
   nEl = document.createElement("span");
@@ -68,14 +68,16 @@ function createBlock(width, payed, her = null) {
     // nEl.content = " - " + her["summa"] + " грн"; // tool tip text
     d.appendChild(nEl);
   } else {
-    // nEl = document.createElement("span");
-    var modal = document.getElementById("myModal");
-
+     nEl = document.createElement("a");
+    
+    // var modal = document.getElementById("myModal");
+    nEl.href="https://shop.spgr.org.ua/"+name+"/"
+    nEl.target="blank"
     nEl.className = "fillDiv noPaySector";
     nEl.title ='Натисни! Допоможи ЗСУ. Купи частину автомобіля. Залиш своє ім’я на сайті'
-    nEl.onclick = function() {
-      modal.style.display = "block";
-    }
+    // nEl.onclick = function() {
+    //   modal.style.display = "block";
+    // }
     
     d.appendChild(nEl);
   }
