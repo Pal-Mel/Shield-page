@@ -12,6 +12,8 @@ function SortArray(x, y) {
 // заповнення клітинок на картинці
 function fillSectors(name) {
   var curHer = dt[name];
+  var otst = otstoinik[name]
+
   const countOfRow = 100;
   const countOfColumn = 100;
   const widthBlock = 6;
@@ -39,8 +41,7 @@ function fillSectors(name) {
               true,
               curHer[h]
             );
-          } else {
-          }
+          } 
 
           var qq = width - (countOfColumn * widthBlock - curWidthRow);
           curWidthRow = qq;
@@ -60,19 +61,28 @@ function fillSectors(name) {
         j += 1;
       }
     }
-  } while (j <= countOfColumn * countOfRow);
+  } while (j <= countOfColumn * countOfRow - parseInt(otst["count"]));
+
+  var countOtst = Math.trunc(parseInt(otst["count"])/countOfColumn) 
+  var ostCountOtst = parseInt(otst["count"]) - countOtst * countOfColumn//=( Math.trunc(parseInt(otst["count"])/countOfColumn) - Math.trunc(parseInt(otst["count"]) / countOfColumn)) * countOfColumn
+console.log(ostCountOtst)
+  createBlock(ostCountOtst*widthBlock, true,null ,"",widthBlock)
+  if (countOtst != 0)createBlock(countOfColumn*widthBlock, true,null ,"",widthBlock*countOtst)
+
+
 }
 
-function createBlock(width, payed, her = null, name = "") {
+function createBlock(width, payed, her = null, name = "", height = null) {
   var d = document.getElementById("mainDiv");
   var nEl;
   nEl = document.createElement("span");
   nEl.style.width = width.toString() + "px";
-  // nEl.style.height = width.toString() + "px";
+  
+  if(height) {nEl.style.height = height.toString() + "px";}
   if (payed) {
     nEl.className = "tooltip fillDiv paySector";
     nEl.delayOpen = "10";
-    nEl.title = her["Name"];
+   if(her) {if(her["Name"]) {nEl.title = her["Name"];} }else {nEl.title = 'Анонімний донатор'} 
     // nEl.content = " - " + her["summa"] + " грн"; // tool tip text
     d.appendChild(nEl);
   } else {
