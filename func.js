@@ -23,17 +23,15 @@ function fillSectors(name) {
 
   let j = 1;
   do {
-    console.log(curHer.length);
     if (curHer.length == 0) {
       width = widthBlock
       createBlock(width, false, null, name);
       j += 1;
     } else {
-      if (h < curHer.length - 1) {
+      if (h < curHer.length ) {
         countForFill = curHer[h]["count"] * 1;
-
         width = widthBlock * countForFill;
-
+   
         if (curWidthRow + width > countOfColumn * widthBlock) {
           if (countOfColumn * widthBlock - curWidthRow != 0) {
             createBlock(
@@ -41,6 +39,7 @@ function fillSectors(name) {
               true,
               curHer[h]
             );
+          } else {
           }
 
           var qq = width - (countOfColumn * widthBlock - curWidthRow);
@@ -49,6 +48,7 @@ function fillSectors(name) {
             createBlock(qq, true, curHer[h]);
           }
         } else {
+
           createBlock(width, true, curHer[h]);
           curWidthRow += width;
         }
@@ -56,7 +56,7 @@ function fillSectors(name) {
         h += 1;
         j += countForFill;
       } else {
-        createBlock(width, false, null, name);
+        createBlock(width, false, null);
         j += 1;
       }
     }
