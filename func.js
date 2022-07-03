@@ -65,7 +65,7 @@ function fillSectors(name) {
 
   var countOtst = Math.trunc(parseInt(otst["count"])/countOfColumn) 
   var ostCountOtst = parseInt(otst["count"]) - countOtst * countOfColumn//=( Math.trunc(parseInt(otst["count"])/countOfColumn) - Math.trunc(parseInt(otst["count"]) / countOfColumn)) * countOfColumn
-  createBlock(ostCountOtst*widthBlock, true,null ,"",widthBlock)
+  if (ostCountOtst != 0) createBlock(ostCountOtst*widthBlock, true,null ,"",widthBlock)
   if (countOtst != 0)createBlock(countOfColumn*widthBlock, true,null ,"",widthBlock*countOtst)
 
 
