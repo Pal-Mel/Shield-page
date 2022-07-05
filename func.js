@@ -71,8 +71,8 @@ function fillSectors(name) {
 
 }
 
-function createBlock(width, payed, her = null, name = "", height = null) {
-  var d = document.getElementById("mainDiv");
+function createBlock(width, payed, her = null, name = "", height = null, classDiv = "mainDiv") {
+  var d = document.getElementById(classDiv);
   var nEl;
   nEl = document.createElement("span");
   nEl.style.width = width.toString() + "px";
@@ -99,4 +99,22 @@ function createBlock(width, payed, her = null, name = "", height = null) {
 
     d.appendChild(nEl);
   }
+}
+
+
+function fillMosaik(name) {
+  var her = dt[name];
+  var otst = otstoinik[name]
+  const widthBlock = 6;
+
+
+for(i in her) {
+  her[i]["size"] = Math.trunc(Math.sqrt(parseInt(her[i]["count"])))
+  her[i]["last"] = parseInt(her[i]["count"]) - (parseInt(her[i]["size"]) * parseInt(her[i]["size"]))
+  createBlock(her[i]["size"]*widthBlock, true,her,her[i]["Name"], her[i]["size"]*widthBlock,"mosaik")
+  if(her[i]["last"]!=0){createBlock(parseInt(her[i]["last"])*widthBlock, true,her,her[i]["Name"], widthBlock,"mosaik")}
+  console.log(her[i])
+}
+  
+
 }

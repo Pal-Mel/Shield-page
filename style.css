@@ -1,6 +1,9 @@
+body{
+  margin:0px;
+}
 .container {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
 
 }
@@ -91,4 +94,8 @@
 
 .btn-pay {
   width: 100%;
+}
+
+#mosaik {
+  display:flex;
 }
