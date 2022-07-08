@@ -51,6 +51,8 @@ body{
 
 .fillDiv {
   background: none;
+  background: rgba(192, 176, 176, 0,5);
+
 }
 .fillDiv:hover {
   /* background: rgba(0, 0, 0, 0.5); */
@@ -69,8 +71,9 @@ body{
     box-sizing: border-box;
   width: 6px;
   height: 6px;
-  border-left: rgba(0, 0, 0, 0.7) 1px solid;
-  border-bottom: rgba(0, 0, 0, 0.7) 1px solid;
+  border: rgba(0, 0, 0, 0.7) 1px solid;
+  /* border-left: rgba(0, 0, 0, 0.7) 1px solid; */
+  /* border-bottom: rgba(0, 0, 0, 0.7) 1px solid; */
     /* background: rgba(193, 194, 193, 0.4); */
   opacity: 1;
 }
@@ -98,4 +101,6 @@ body{
 
 #mosaik {
   display:flex;
+      flex-wrap: wrap;
+
 }
